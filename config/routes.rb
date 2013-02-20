@@ -1,4 +1,7 @@
 SutheeProj1::Application.routes.draw do
+  resources :webs
+
+
   resources :posts
 
 

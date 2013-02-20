@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @web.name %>
+</p>
+
+<p>
+  <b>Visits:</b>
+  <%= @web.visits %>
+</p>
+
+
+<%= link_to 'Visit', edit_web_path(@web) %> |
+<%= link_to 'Back', webs_path %>
