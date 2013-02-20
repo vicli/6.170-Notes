@@ -3,7 +3,7 @@ Project 1: Web Analytics
 
 ###Heroku URL
 
-Please put it here: http://sampleapp.herokuapp.com
+Please put it here: http://morning-depths-5166.herokuapp.com/webs
 
 ###Notes
 
