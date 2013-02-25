@@ -1,4 +1,7 @@
 MullingsProj1::Application.routes.draw do
+  resources :pages
+
+
   resources :sites do
     resources :pages
   end
