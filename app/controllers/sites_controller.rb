@@ -80,4 +80,18 @@ class SitesController < ApplicationController
       format.json { head :no_content }
     end
   end
+  
+  def visit
+    @site = Site.find(params[:id])
+    @page = Page.where(:site_id => params[:id], :url => params[:url]).first_or_create(:visits => 0, :totalVisitDuration => Time.at(0))
+	
+	@page.visits += 1
+	@page.totalVisitDuration += params[:duration].to_f
+	@page.save
+
+    respond_to do |format|
+      format.html { redirect_to site_page_path(@site,@page) }
+      format.json { head :no_content }
+    end
+  end
 end

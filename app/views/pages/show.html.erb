@@ -2,11 +2,11 @@
 
 <p>
   <b>Site:</b>
-  <%= @page.site %>
+  <%= @page.site.url %>
 </p>
 
 <p>
-  <b>Url:</b>
+  <b>URI:</b>
   <%= @page.url %>
 </p>
 
@@ -16,8 +16,13 @@
 </p>
 
 <p>
-  <b>Totalvisitduration:</b>
-  <%= @page.totalVisitDuration %>
+  <b>Total Visit Duration:</b>
+  <%= @page.totalVisitDuration.to_f %>
+</p>
+
+<p>
+  <b>Avg Visit Duration:</b>
+  <%= @page.totalVisitDuration.to_f / @page.visits %>
 </p>
 
 
