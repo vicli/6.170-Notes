@@ -3,8 +3,10 @@
 .bundle
 .config
 coverage
+db/*.sqlite3
 InstalledFiles
 lib/bundler/man
+log/*.log
 pkg
 rdoc
 spec/reports
