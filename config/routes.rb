@@ -4,7 +4,7 @@ MullingsProj1::Application.routes.draw do
 
   resources :sites do
     member do
-	  get 'visit'
+	  post 'visit'
 	end
     resources :pages
   end
