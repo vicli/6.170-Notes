@@ -1,4 +1,5 @@
 MullingsProj1::Application.routes.draw do
+  # handle CORS pre-flight request
   match "/sites/:id/visit" => "home#resource_preflight", :constraints => { :method => "OPTIONS" }
 
   resources :sites do

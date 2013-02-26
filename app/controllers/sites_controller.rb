@@ -81,6 +81,9 @@ class SitesController < ApplicationController
     end
   end
   
+  # Record a visit to some page on the site
+  # requires: a valid site, url, and duration
+  # modifies: the coresponding page, or creates a new one
   def visit
     @site = Site.find(params[:id])
     @page = Page.where(:site_id => params[:id], :url => params[:url]).first_or_create(:visits => 0, :totalVisitDuration => 0)
@@ -93,6 +96,7 @@ class SitesController < ApplicationController
     render :text => "OK, visit has been recorded!"
   end
   
+  # helper method for setting CORS headers
   def set_cors_headers
     headers["Access-Control-Allow-Origin"] = "*"
     headers["Access-Control-Allow-Methods"] = "POST, GET, OPTIONS"
@@ -100,12 +104,13 @@ class SitesController < ApplicationController
     headers["Access-Control-Max-Age"] = "3600"
   end
   
+  # Sends a CORS pre-flight response
   def resource_preflight
     set_cors_headers
     render :text => "", :content_type => "text/plain"
   end
   
-  # Displays a 404 page
+  # Displays an error page
   def not_found
     raise ActionController::RoutingError.new('Not Found')
   end

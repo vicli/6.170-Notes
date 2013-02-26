@@ -3,7 +3,8 @@
 <table>
   <tr>
     <th>Name</th>
-    <th>Url</th>
+    <th>URL</th>
+    <th>Pages</th>
     <th>Visits</th>
     <th></th>
     <th></th>
@@ -14,6 +15,7 @@
   <tr>
     <td><%= site.name %></td>
     <td><%= site.url %></td>
+    <td><%= site.pages.length %></td>
     <td><%= site.visits %></td>
     <td><%= link_to 'Show', site %></td>
     <td><%= link_to 'Edit', edit_site_path(site) %></td>

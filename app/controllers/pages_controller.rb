@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
-  # simply redirects to the site's show method
+  # Simply redirects to the site's show method
   def index
     @site = Site.find(params[:site_id])
     redirect_to @site
