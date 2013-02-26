@@ -1,4 +1,7 @@
 MullingsProj1::Application.routes.draw do
+  match "/sites/:id/visit" => "home#resource_preflight", :constraints => { :method => "OPTIONS" }
+  resources :pages
+
   resources :sites do
     member do
 	  get 'visit'

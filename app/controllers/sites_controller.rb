@@ -83,15 +83,25 @@ class SitesController < ApplicationController
   
   def visit
     @site = Site.find(params[:id])
-    @page = Page.where(:site_id => params[:id], :url => params[:url]).first_or_create(:visits => 0, :totalVisitDuration => Time.at(0))
+    @page = Page.where(:site_id => params[:id], :url => params[:url]).first_or_create(:visits => 0, :totalVisitDuration => 0)
 	
 	@page.visits += 1
 	@page.totalVisitDuration += params[:duration].to_f
 	@page.save
 
-    respond_to do |format|
-      format.html { redirect_to site_page_path(@site,@page) }
-      format.json { head :no_content }
-    end
+    set_cors_headers
+    render :text => "OK, visit has been recorded!"
+  end
+  
+  def set_cors_headers
+    headers["Access-Control-Allow-Origin"] = "*"
+    headers["Access-Control-Allow-Methods"] = "POST, GET, OPTIONS"
+    headers["Access-Control-Allow-Headers"] = "Content-Type, Origin, Referer, User-Agent"
+    headers["Access-Control-Max-Age"] = "3600"
+  end
+  
+  def resource_preflight
+    set_cors_headers
+    render :text => "", :content_type => "text/plain"
   end
 end

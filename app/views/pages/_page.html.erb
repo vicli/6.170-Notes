@@ -1,0 +1,6 @@
+<tr>
+  <td><%= page.url %></td>
+  <td><%= page.visits %></td>
+  <td><%= page.totalVisitDuration / page.visits %></td>
+  <td><%= link_to 'Remove', page, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+</tr>

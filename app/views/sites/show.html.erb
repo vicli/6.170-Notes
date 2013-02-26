@@ -1,15 +1,31 @@
 <p id="notice"><%= notice %></p>
 
+<h1>Site Info</h1>
+
 <p>
   <b>Name:</b>
   <%= @site.name %>
 </p>
 
 <p>
-  <b>Url:</b>
+  <b>URL:</b>
   <%= @site.url %>
 </p>
 
+<h1>Pages</h1>
 
-<%= link_to 'Edit', edit_site_path(@site) %> |
-<%= link_to 'Back', sites_path %>
+<table>
+  <tr>
+    <th>Path</th>
+    <th>Visits</th>
+    <th>Average Visit<br>Duration (seconds)</th>
+    <th></th>
+  </tr>
+
+  <%= render @site.pages %>
+</table>
+
+<p>
+  <%= link_to 'Edit', edit_site_path(@site) %> |
+  <%= link_to 'Back', sites_path %>
+</p>

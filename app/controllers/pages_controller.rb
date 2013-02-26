@@ -2,7 +2,8 @@ class PagesController < ApplicationController
   # GET /pages
   # GET /pages.json
   def index
-    @pages = Page.all
+    @site = Site.find(params[:site_id])
+    @pages = @site.pages
 
     respond_to do |format|
       format.html # index.html.erb
@@ -13,6 +14,7 @@ class PagesController < ApplicationController
   # GET /pages/1
   # GET /pages/1.json
   def show
+    @site = Site.find(params[:site_id])
     @page = Page.find(params[:id])
 
     respond_to do |format|

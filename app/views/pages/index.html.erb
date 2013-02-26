@@ -1,11 +1,11 @@
-<h1>Listing pages</h1>
+<h1>Listing pages for site <%= Site.find(params[:site_id]).name %></h1>
 
 <table>
   <tr>
-    <th>Site</th>
-    <th>Url</th>
+    <th>Site URL</th>
+    <th>URI</th>
     <th>Visits</th>
-    <th>Totalvisitduration</th>
+    <th>Average Visit Duration</th>
     <th></th>
     <th></th>
     <th></th>
@@ -13,11 +13,11 @@
 
 <% @pages.each do |page| %>
   <tr>
-    <td><%= page.site %></td>
+    <td><%= page.site.url %></td>
     <td><%= page.url %></td>
     <td><%= page.visits %></td>
-    <td><%= page.totalVisitDuration %></td>
-    <td><%= link_to 'Show', page %></td>
+    <td><%= page.totalVisitDuration / page.visits %></td>
+    <td><%= link_to 'Show', site_page_path %></td>
     <td><%= link_to 'Edit', edit_page_path(page) %></td>
     <td><%= link_to 'Destroy', page, method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>
