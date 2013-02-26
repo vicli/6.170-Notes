@@ -4,4 +4,8 @@ class Site < ActiveRecord::Base
   
   validates :name, :presence => true
   validates :url, :presence => true
+  
+  def visits
+    return pages.inject(0) { |sum, page| page.visits + sum }
+  end
 end

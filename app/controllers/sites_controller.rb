@@ -13,7 +13,7 @@ class SitesController < ApplicationController
   # GET /sites/1
   # GET /sites/1.json
   def show
-    @site = Site.find(params[:id])
+    @site = Site.find_by_id(params[:id]) || not_found
 
     respond_to do |format|
       format.html # show.html.erb
@@ -103,5 +103,10 @@ class SitesController < ApplicationController
   def resource_preflight
     set_cors_headers
     render :text => "", :content_type => "text/plain"
+  end
+  
+  # Displays a 404 page
+  def not_found
+    raise ActionController::RoutingError.new('Not Found')
   end
 end

@@ -14,7 +14,7 @@
   <tr>
     <td><%= site.name %></td>
     <td><%= site.url %></td>
-    <td><%= site.pages.inject(0) { |sum, page| page.visits + sum } %></td>
+    <td><%= site.visits %></td>
     <td><%= link_to 'Show', site %></td>
     <td><%= link_to 'Edit', edit_site_path(site) %></td>
     <td><%= link_to 'Destroy', site, method: :delete, data: { confirm: 'Are you sure?' } %></td>
