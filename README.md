@@ -3,7 +3,7 @@ Project 1: Web Analytics
 
 ###Heroku URL
 
-Please put it here: http://sampleapp.herokuapp.com
+http://fast-escarpment-9659.herokuapp.com
 
 ###Notes
 

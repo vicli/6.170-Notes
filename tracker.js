@@ -1,6 +1,6 @@
 // Modify these values
-var analyticsUrl = 'http://localhost'
 var siteID = 0;
+var analyticsUrl = 'http://fast-escarpment-9659.herokuapp.com'
 // Modify these values
 
 var arriveTime;
