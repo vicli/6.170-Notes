@@ -5,7 +5,7 @@ class CreatePages < ActiveRecord::Migration
       t.references :site
       t.string :url
       t.integer :visits
-      t.time :totalVisitDuration
+      t.float :totalVisitDuration
 
       t.timestamps
     end

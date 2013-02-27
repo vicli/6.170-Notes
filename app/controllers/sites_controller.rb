@@ -107,7 +107,7 @@ class SitesController < ApplicationController
   # Sends a CORS pre-flight response
   def resource_preflight
     set_cors_headers
-    render :text => "CORS Pre-Flight Response", :content_type => "text/plain"
+    render :text => "", :content_type => "text/plain"
   end
   
   # Displays an error page
