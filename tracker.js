@@ -1,5 +1,8 @@
-var analyticsUrl = 'http://localhost:3000'
-var siteID = 1;
+// Modify these values
+var analyticsUrl = 'http://localhost'
+var siteID = 0;
+// Modify these values
+
 var arriveTime;
 
 window.onload = function() {

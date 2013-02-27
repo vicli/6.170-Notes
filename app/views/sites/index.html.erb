@@ -2,6 +2,7 @@
 
 <table>
   <tr>
+    <th>ID</th>
     <th>Name</th>
     <th>URL</th>
     <th>Pages</th>
@@ -13,6 +14,7 @@
 
 <% @sites.each do |site| %>
   <tr>
+    <td><%= site.id %></td>
     <td><%= site.name %></td>
     <td><%= site.url %></td>
     <td><%= site.pages.length %></td>

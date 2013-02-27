@@ -7,20 +7,11 @@ Please put it here: http://sampleapp.herokuapp.com
 
 ###Notes
 
-Any instructions or notes for your grader should be placed here.
+To use the app:
+1) Navigate to the app's home page, and create a new site
+2) Copy tracker.js to your website's directory
+3) Change the URL and site ID in tracker.js to match those provided by the app
+4) Embed tracker.js in the html for any webpage you want to track
 
-
-###Code Deliverables
-
-Your code should be a rails project located at the root of this repository. To
-create a new rails project, run
-
-    >> rails new .
-
-in this directory.
-
-
-###PDF Deliverables
-
-Additional deliverables, such as the problem-analysis and the design-analysis, should
-be saved as PDF files in the directory called "deliverables"
+Additional note:
+The testsite.zip file contains an example site that can be hosted using node.js. See the readme inside for more details.
