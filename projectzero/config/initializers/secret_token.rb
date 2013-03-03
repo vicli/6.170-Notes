@@ -4,4 +4,4 @@
 # If you change this key, all old signed cookies will become invalid!
 # Make sure the secret is at least 30 characters and all random,
 # no regular words or you'll be exposed to dictionary attacks.
-Projectzero::Application.config.secret_token = '20288a1afa71647e47521edc3f06e29a9c586534ee2a6bbbbf8536d76319e9e133ab1c082f043afacb86b22c9f6c1093102a5a36d3a83a0b1ed381851276f071'
+Projectzero::Application.config.secret_token = 'ebd79679d449b2b62f3ce204f96dd53820a30202204f45a783f73ac831b5b42c0155d6bd6147c1bb2d163afe06f8a00b096cd21edc722f0ab8f73dad2d6d9424'
