@@ -9,8 +9,19 @@ class User < ActiveRecord::Base
 
   validate  :password_must_be_present
 
-  attr_accessible :name, :password, :password_confirmation
+  attr_accessible :name, :password, :password_confirmation, :is_admin
   after_destroy :ensure_admin
+
+  after_initialize :default_values
+
+  def default_values
+    self.is_admin ||= 'false'
+  end
+
+  def is_admin?(name)
+    user = find_by_name(name)
+    user.is_admin
+  end
 
   def ensure_admin
     if User.count.zero?

@@ -1,4 +1,10 @@
 Proj2::Application.routes.draw do
+  get "customer_sessions/new"
+
+  get "customer_sessions/create"
+
+  get "customer_sessions/destroy"
+
   resources :customers
 
 
@@ -20,6 +26,12 @@ Proj2::Application.routes.draw do
     delete 'logout' => :destroy
   end
 
+  controller :customer_sessions do
+    get 'customerlogin' => :new
+    post 'customerlogin' => :create
+    delete 'customerlogout' => :destroy
+  end
+
   resources :users
 
 
@@ -33,7 +45,7 @@ Proj2::Application.routes.draw do
   match "/line_items" => 'line_items#destroy'
   resources :carts
 
-
+  match "/display" => 'carts#show'
   get "store/index"
   match 'orders/new' => 'orders#new'
   resources :products do

@@ -1,4 +1,5 @@
 class LineItemsController < ApplicationController
+  #skip_before_filter :authorize_normal
   skip_before_filter :authorize
   # GET /line_items
   # GET /line_items.json
