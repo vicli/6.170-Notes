@@ -12,8 +12,6 @@ class User < ActiveRecord::Base
   attr_accessible :name, :password, :password_confirmation
   after_destroy :ensure_admin
 
-  after_initialize :default_values
-
 
   def ensure_admin
     if User.count.zero?
