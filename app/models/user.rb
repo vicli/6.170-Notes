@@ -9,7 +9,7 @@ class User < ActiveRecord::Base
 
   validate  :password_must_be_present
 
-  attr_accessible :name, :password, :password_confirmation, :is_admin
+  attr_accessible :name, :password, :password_confirmation
   after_destroy :ensure_admin
 
   after_initialize :default_values
