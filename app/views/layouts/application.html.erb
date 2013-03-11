@@ -3,12 +3,35 @@
 <head>
   <title>Proj2</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= stylesheet_link_tag "custom" %>
   <%= javascript_include_tag "application" %>
+  
   <%= csrf_meta_tags %>
 </head>
 <body>
+<div id = "columns">
+<div id = "side">
 
+	<% if !!session[:user_id] %>
+	<%= link_to 'Orders', orders_path %><br />
+	<%= link_to 'Products', products_path %><br />
+	<%= link_to 'Users', users_path %><br />
+
+	<br />
+	<%= button_to 'Logout', logout_path, :method => :delete %>
+	<% else %>
+		<% if @cart %>
+		<%= hidden_div_if(@cart.line_items.empty?, :id => "cart") do %>
+		<%= render @cart %>
+		<% end %>
+		<% end %>
+	<% end %>
+
+</div>
+
+</div>
 <%= yield %>
 
 </body>
 </html>
+

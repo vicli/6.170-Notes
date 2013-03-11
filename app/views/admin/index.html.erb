@@ -1,0 +1,33 @@
+<h1> Welcome!</h1>
+
+There are currently <%= @total_orders %> orders.
+<br />
+<br />
+<br />
+
+<h2> Orders </h2>
+<% @orders.each do |order| %>
+<div class = "orders">
+<p>
+  <b>Name:</b>
+  <%= order.name %>
+</p>
+
+<p>
+  <b>Address:</b>
+  <%= order.address %>
+</p>
+
+<p>
+  <b>Email:</b> 
+  <%= order.email %>
+</p>
+<%= order.line_items.each do |item| %>
+	<p> Product id:<%= item.product_id %> Quantity: <%= item.quantity %> </p>
+
+<% end %>
+<hr />
+</div>
+
+
+<% end %>

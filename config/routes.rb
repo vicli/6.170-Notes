@@ -1,4 +1,47 @@
 Proj2::Application.routes.draw do
+  resources :customers
+
+
+  get "admin/index"
+
+  get "sessions/new"
+
+  get "sessions/create"
+
+  get "sessions/destroy"
+
+  get 'admin' => 'admin#index'
+
+
+
+  controller :sessions do
+    get 'login' => :new
+    post 'login' => :create
+    delete 'logout' => :destroy
+  end
+
+  resources :users
+
+
+  resources :orders
+
+
+  resources :line_items do
+    put :decrease, :on => :collection
+  end
+
+  match "/line_items" => 'line_items#destroy'
+  resources :carts
+
+
+  get "store/index"
+  match 'orders/new' => 'orders#new'
+  resources :products do
+    get :feed, :on => :member
+  end
+
+  root :to => 'store#index', :as => 'store'
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
