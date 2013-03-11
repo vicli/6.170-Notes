@@ -9,8 +9,8 @@ class CombineItems < ActiveRecord::Migration
   			if quantity > 1
   				cart.line_items.where(:product_id => product_id).delete_all
   				cart.line_items.create(:product_id => product_id, :quantity => quantity)
-
-
+      end
+    end
   end
 
   # When we want to decrease quantity 
