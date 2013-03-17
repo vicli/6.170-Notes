@@ -3,3 +3,30 @@
 
 en:
   hello: "Hello world"
+  
+  store:
+    index:
+      title: "Your Store Catalog"
+      add: "Add to Cart"
+  carts:
+    cart:
+      title: "Your cart"
+      empty: "Empty Cart"
+      checkout: "Checkout"
+  number:
+   currency:
+     format:
+       unit: "$"
+       precision: 2
+       separator: "."
+       delimiter: ","
+       format: "%u%n"
+  orders:
+    new:
+      legend: "Please fill out your order details"
+    form:
+      name: "Name"
+      address: "Address"
+      email: "Email"
+      submit: "Submit Order"
+  thanks: "Thanks for your order!"

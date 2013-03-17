@@ -1,0 +1,45 @@
+es:
+  store:
+    index:
+      title: "Su Compra Por Catalogo"
+      add: "Anadir a la Cesta"
+
+  carts:
+    cart:
+      title: "Su Carrito"
+      empty: "Carriot Vacio"
+      checkout: "Caja"
+  number:
+    currency:
+      format:
+        unit: "$US"
+        precision: 2
+        separator: ","
+        delimiter: "."
+        format: "%n&nbsp;%u"
+  thanks: "Gracias por su Pedido!"
+  orders:
+    new:
+      legend: "Por favor complete la información del pedido"
+    form:
+      name: "Nombre"
+      address: "Direccion"
+      email: "Email"
+      submit: "Presentar Orden"
+  activerecord:
+    models:
+      order: "pedido"
+    attributes:
+      order:
+        address: "Direccion"
+        name: "Nombre"
+        email: "Email"
+
+    errors:
+      messages:
+        inclusion: "no estaacute includio en la lista"
+        blank: "no puede quedar en blanco"
+  errors:
+    template:
+      body: "Hay problemas con los siguientes campos:"
+      header:

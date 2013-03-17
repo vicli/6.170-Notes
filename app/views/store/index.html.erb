@@ -2,7 +2,7 @@
 <p id = "notice"><%= notice %></p>
 <%end %>
 
-<h1 id = "catalog"> Your Shopping Catalog </h1>
+<h1 id = "catalog"> <%= t('.title')%></h1>
 
 <div id = "listing">
 <% @products.each do |product| %>
@@ -13,7 +13,7 @@
 
 		<div class = "priceline">
 			<span class = "price"><%= number_to_currency(product.price) %></span>
-			<div class = "but"><%= button_to 'Add to cart', line_items_path(:product_id => product), :remote => true %></div>
+			<div class = "but"><%= button_to t('.add'), line_items_path(:product_id => product), :remote => true %></div>
 		</div>
 		<hr />
 		<% end %>

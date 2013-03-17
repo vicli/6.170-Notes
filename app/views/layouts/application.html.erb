@@ -9,6 +9,12 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+	<p>
+<%= link_to_unless I18n.locale == :en, "EN", locale: :en %>
+|
+<%= link_to_unless I18n.locale == :es, "ES", locale: :es %>
+</p>
+
 <div id = "columns">
 <div id = "side">
 
