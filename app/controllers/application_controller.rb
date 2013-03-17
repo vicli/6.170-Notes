@@ -28,9 +28,9 @@ class ApplicationController < ActionController::Base
     def authorize   
       user = User.find_by_id(session[:user_id]) 
       unless user
-        unless user != nil and user.is_admin?
+     
           redirect_to login_url, :notice => "Please log in"
-        end
+      
       end
     end
 
