@@ -7,11 +7,12 @@ Please put it here: http://gentle-forest-9272.herokuapp.com/
 
 ###Notes
 
-To access admin parts of the site, visit http://gentle-forest-9272.herokuapp.com/admin
+To access admin parts of the site, log in with 
 Username: admin
 password: default
+and visit http://gentle-forest-9272.herokuapp.com/admin
 
-Customer can view cart automatically on the right, as it is updated via ajax. There are no customer accounts, as the site remembers your cart until you empty the cart or submit an order. 
+Customer can view cart automatically on the right, as it is updated via ajax. You must be signed in in order to submit an order
 
 
 ###Code Deliverables
