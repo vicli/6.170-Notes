@@ -1,6 +1,7 @@
 class OrdersController < ApplicationController
  # before_filter :cust_authorize
- skip_before_filter :authorize, :only => [:new, :create]
+ skip_before_filter :authorize, :only => [:new]
+ skip_before_filter :authorize_admin
   # GET /orders
   # GET /orders.json
 

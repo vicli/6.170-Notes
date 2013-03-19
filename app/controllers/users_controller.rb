@@ -1,6 +1,9 @@
 class UsersController < ApplicationController
+  skip_before_filter :authorize
+  skip_before_filter :authorize_admin, :except => [:index]
   # GET /users
   # GET /users.json
+  
   def index
     @users = User.order(:name)
     @cart = current_cart
@@ -48,8 +51,13 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
-        format.html { redirect_to users_url, notice: 'User was successfully created.' }
-        format.json { render json: @user, status: :created, location: @user }
+        if @user.role == "admin"
+          format.html { redirect_to users_url, notice: 'User was successfully created.' }
+          format.json { render json: @user, status: :created, location: @user }
+        else
+          format.html { redirect_to store_url, notice: 'Thanks for signing up! You can now log in with your new account.' }
+          format.json { render json: @user, status: :created, location: @user }
+        end
       else
         format.html { render action: "new" }
         format.json { render json: @user.errors, status: :unprocessable_entity }

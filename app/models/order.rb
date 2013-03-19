@@ -2,7 +2,7 @@ class Order < ActiveRecord::Base
   attr_accessible :address, :email, :name, :paytype
   PAYMENT_TYPES = ["Check", "Credit Card"]
   has_many :line_items, :dependent => :destroy
-  belongs_to :customer
+  belongs_to :user
   validates :name, :address, :email, :presence => true
 
   def add_items (cart)

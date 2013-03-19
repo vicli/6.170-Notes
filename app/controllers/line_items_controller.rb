@@ -1,6 +1,7 @@
 class LineItemsController < ApplicationController
   #skip_before_filter :authorize_normal
   skip_before_filter :authorize
+  skip_before_filter :authorize_admin
   # GET /line_items
   # GET /line_items.json
   def index

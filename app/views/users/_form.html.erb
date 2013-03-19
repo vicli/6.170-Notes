@@ -27,7 +27,14 @@
       <%= f.label :password_confirmation, 'Confirm' %>
       <%= f.password_field :password_confirmation, :size => 40 %>
     </div>
-
+    <% if User.find_by_id(session[:user_id]) %>
+      <% if User.find_by_id(session[:user_id]).role == "admin" %>
+        <div>
+          <%= f.label :role, 'Role (Change to admin to give administrative access)' %>
+          <%= f.text_field :role, :size => 40 %>
+        </div>
+      <% end %>
+    <% end %>
     <div>
       <%= f.submit %>
     </div>

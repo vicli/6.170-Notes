@@ -7,7 +7,7 @@
     <th>Name</th>
     <th>Hashed password</th>
     <th>Salt</th>
-    <th></th>
+    <th>Role</th>
     <th></th>
     <th></th>
   </tr>
@@ -17,6 +17,7 @@
     <td><%= user.name %></td>
     <td><%= user.hashed_password %></td>
     <td><%= user.salt %></td>
+    <td><%= user.role %></td>
     
     <td><%= link_to 'Show', user %></td>
     <td><%= link_to 'Edit', edit_user_path(user) %></td>

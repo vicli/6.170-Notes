@@ -1,6 +1,7 @@
 class CartsController < ApplicationController
  # skip_before_filter :authorize_normal
   skip_before_filter :authorize
+  skip_before_filter :authorize_admin
   # GET /carts
   # GET /carts.xml
   def index
