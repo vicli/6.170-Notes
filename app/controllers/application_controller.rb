@@ -9,6 +9,7 @@ class ApplicationController < ActionController::Base
 
   include ApplicationHelper
   
+  # Checks is user is logged in. 
   def user_is_logged_in?
     !!session[:user_id]
   end
@@ -27,7 +28,7 @@ class ApplicationController < ActionController::Base
 
   protected
 
-
+    #Sets authorization to check of User is logged in
     def authorize   
       user = User.find_by_id(session[:user_id]) 
       unless user
@@ -35,6 +36,7 @@ class ApplicationController < ActionController::Base
       end
     end
 
+    #Sets authorization to check of user is an admin
     def authorize_admin
       if user = User.find_by_id(session[:user_id])
         unless user.role == "admin"
@@ -43,7 +45,7 @@ class ApplicationController < ActionController::Base
       end
     end
 
-
+    #Sets the local language
     def set_i18n
       if params[:locale]
         if I18n.available_locales.include?(params[:locale].to_sym)
@@ -55,6 +57,7 @@ class ApplicationController < ActionController::Base
       end
     end
 
+    #Default options for internationalization feature
     def default_url_options
       {:locale => I18n.locale}
     end

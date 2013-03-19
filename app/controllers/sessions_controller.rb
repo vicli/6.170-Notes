@@ -5,9 +5,12 @@ class SessionsController < ApplicationController
   def new
   end
 
+  # Creates a new user session by first authenticating user then storing the user_id
   def create
   	if user = User.authenticate(params[:name], params[:password])
   		session[:user_id] = user.id
+
+      # Redirects to different pages depending on type of user. 
       if user.role == "admin"
   		  redirect_to admin_url 
       else
@@ -18,6 +21,7 @@ class SessionsController < ApplicationController
   	end
   end
 
+  # Destroys user session when user logs out
   def destroy
   	session[:user_id] = nil
   	redirect_to store_url, :notice => "Logged out"

@@ -12,7 +12,7 @@ class CartsController < ApplicationController
       format.xml  { render :xml => @carts }
     end
   end
-
+  
   # GET /carts/1
   # GET /carts/1.xml
   def show

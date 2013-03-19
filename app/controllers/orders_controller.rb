@@ -1,7 +1,7 @@
 class OrdersController < ApplicationController
- # before_filter :cust_authorize
+
  skip_before_filter :authorize, :only => [:new]
- skip_before_filter :authorize_admin
+ skip_before_filter :authorize_admin, :only =>[:new, :create]
   # GET /orders
   # GET /orders.json
 
@@ -49,6 +49,9 @@ class OrdersController < ApplicationController
 
   # POST /orders
   # POST /orders.json
+
+  # When an order is created, cart instance is destroyed.
+  # Redirects to main page of store.
   def create
     @order = Order.new(params[:order])
     @order.add_items(current_cart)

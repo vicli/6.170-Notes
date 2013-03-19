@@ -5,6 +5,7 @@ class Order < ActiveRecord::Base
   belongs_to :user
   validates :name, :address, :email, :presence => true
 
+  # Adds cart items to order 
   def add_items (cart)
   	cart.line_items.each do |item|
   		item.cart_id = nil

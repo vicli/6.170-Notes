@@ -2,6 +2,11 @@
 # See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 en:
+  sessions:
+    new:
+      sessionlogin: "Login"
+      sessionname: "Name:"
+      sessionpass: "Password:"
   layouts: 
     application:
       home: "Home"
@@ -11,6 +16,7 @@ en:
       signup: "Sign Up"
       login: "Login"
       logout: "Logout"
+      message: "Welcome"
   line_items:
     line_item:
       remove: "Remove"

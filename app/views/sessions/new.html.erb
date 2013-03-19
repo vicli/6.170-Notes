@@ -1,17 +1,17 @@
 <%= form_tag('/login') do %>
 
 <fieldset>
-	<legend>Log In</legend>
+	<legend><%= t('.sessionlogin')%></legend>
 	<div>
-		<label for="name">Name:</label>
+		<label for="name"><%= t('.sessionname')%></label>
 		<%= text_field_tag :name, params[:name] %>
 	</div>
 	<div>
-		<label for="password">Password:</label>
+		<label for="password"><%= t('.sessionpass')%></label>
 		<%= password_field_tag :password, params[:password] %>
 	</div>
 	<div>
-		<%= submit_tag "Login" %>
+		<%= submit_tag t('.sessionlogin') %>
 	</div>
 </fieldset>
 

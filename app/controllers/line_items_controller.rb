@@ -42,20 +42,52 @@ class LineItemsController < ApplicationController
 
   # POST /line_items
   # POST /line_items.json
+
+  # Creates a new LineItem when a product is added to cart.
+  # Calls method in cart model that adds product to the cart listing.
+  # Subtracts from quantity of product. If quantity is 0, customer is informed that product is out of stock. 
   def create
     @cart = current_cart
     product = Product.find(params[:product_id])
-    @line_item = @cart.add_product(product.id)
+
+    if product.quantity > 0 
+      @line_item = @cart.add_product(product.id)
+      product.update_attributes(:quantity => product.quantity - 1)
+    end
 
     respond_to do |format|
-      if @line_item.save
-        format.html { redirect_to store_url}
-        format.js { @current_item = @line_item}
-        format.json { render json: @line_item, status: :created, location: @line_item }
+      if @line_item
+        if @line_item.save
+          format.html { redirect_to store_url}
+          format.js { @current_item = @line_item}
+          format.json { render json: @line_item, status: :created, location: @line_item }
+        else
+          format.html { render action: "new" }
+          format.json { render json: @line_item.errors, status: :unprocessable_entity }
+        end
       else
-        format.html { render action: "new" }
-        format.json { render json: @line_item.errors, status: :unprocessable_entity }
+        format.html {redirect_to store_url, :notice => 'Sorry! Looks like that product is out of stock'}
       end
+    end
+  end
+
+  # DELETE /line_items/1
+  # DELETE /line_items/1.json
+
+  #Removes product from cart; calls remove_product method in cart.
+  # When product is moved, quantity attribute is updated so that the product in cart is
+  # "returned" to the main inventory.
+  
+  def destroy
+    @cart = current_cart
+    product = Product.find(params[:product_id])
+    #@line_item = LineItem.find(params[:id])
+    @line_item = @cart.remove_product(product.id)
+    product.update_attributes(:quantity => product.quantity + 1)
+
+    respond_to do |format|
+      format.html { redirect_to store_url }
+      format.json { head :no_content }
     end
   end
 
@@ -75,33 +107,7 @@ class LineItemsController < ApplicationController
     end
   end
 
-  def decrease
-    @cart = current_cart
-    product = Product.find(params[:product_id])
-    #@line_item = LineItem.find(params[:id])
-    @line_item = @cart.remove_product(product.id)
-    p "in decrease"
 
-    respond_to do |format|
-      format.html { redirect_to store_url }
-      format.json { head :no_content }
-    end
-  end
-
-  # DELETE /line_items/1
-  # DELETE /line_items/1.json
-  def destroy
-    @cart = current_cart
-    product = Product.find(params[:product_id])
-    #@line_item = LineItem.find(params[:id])
-    @line_item = @cart.remove_product(product.id)
-    p"in desroy"
-
-    respond_to do |format|
-      format.html { redirect_to store_url }
-      format.json { head :no_content }
-    end
-  end
 
 
 end

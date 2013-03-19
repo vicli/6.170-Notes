@@ -46,6 +46,9 @@ class UsersController < ApplicationController
 
   # POST /users
   # POST /users.json
+
+  # Creates new users; only admin users are allow to create addition admin users.
+  # Users are customers by default. 
   def create
     @user = User.new(params[:user])
     @cart = current_cart

@@ -15,7 +15,7 @@
 <div id = "side">
 
 	<% if !!session[:user_id] %>
-	 <p>Welcome, <%= User.find_by_id(session[:user_id]).name %> </p>
+	 <p><%=t('.message')%>, <%= User.find_by_id(session[:user_id]).name %> </p>
 		<% if User.find_by_id(session[:user_id]).role == "admin"%>
 			<%= link_to t('.home'), admin_path %><br />
 			<%= link_to t('.orders'), orders_path %><br />
