@@ -1,3 +1,4 @@
+
 <div class="cart_title" style = "font-weight:bold; font-size: 22px">Your Shopping Cart</div>
 
 <table>
@@ -11,8 +12,10 @@
 
 <div id = "buttons">
 
+<%= button_to t('.checkout'), new_order_path%>
 
 <%= button_to "Checkout", new_order_path, :confirm => 'Please log in first!' %>
 
 <%= button_to 'Empty cart', cart, :method => :delete, :confirm => 'Are you sure?' %>
+
 </div>

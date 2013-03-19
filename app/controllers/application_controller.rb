@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-
+  before_filter :set_i18n
 #  before_filter :authorize_normal
   before_filter :authorize
   before_filter :authorize_admin
@@ -41,4 +41,19 @@ class ApplicationController < ActionController::Base
         end
       end
     end
+
+  def set_i18n
+    if params[:locale]
+      if I18n.available_locales.include?(params[:locale].to_sym)
+        I18n.locale = params[:locale]
+      else
+        flash.now[:notice] = "#{params[:locale]} not available"
+        logger.error flash.now[:notice]
+      end
+    end
+  end
+
+  def default_url_options
+    {:locale => I18n.locale}
+  end
 end

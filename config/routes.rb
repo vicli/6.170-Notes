@@ -16,7 +16,7 @@ Proj2::Application.routes.draw do
 
   get "sessions/destroy"
 
-  get 'admin' => 'admin#index'
+  get ':locale/admin' => 'admin#index'
 
 
 
@@ -29,23 +29,28 @@ Proj2::Application.routes.draw do
 
   resources :users
 
+    resources :orders
+    resources :line_items do
+      put :decrease, :on => :collection
+    end
 
-  resources :orders
+    resources :carts
+    resources :products 
+
+    root :to => 'store#index', :as => 'store'
 
 
-  resources :line_items do
-    put :decrease, :on => :collection
-  end
 
-  match "/line_items" => 'line_items#destroy'
-  resources :carts
-
+  match ":locale/line_items" => 'line_items#destroy'
+  
+  match "/admin?locale=:locale" => 'admin#index'
   match "/display" => 'carts#show'
   get "store/index"
+
   match 'orders/new' => 'orders#new'
   resources :products
 
-  root :to => 'store#index', :as => 'store'
+  
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
