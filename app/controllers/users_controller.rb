@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   skip_before_filter :authorize
   skip_before_filter :authorize_admin, :except => [:index]
+
   # GET /users
   # GET /users.json
   
@@ -51,7 +52,7 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
-        if @user.role == "admin"
+        if !!session[:user_id] && User.find_by_id(session[:user_id]).role == "admin"
           format.html { redirect_to users_url, notice: 'User was successfully created.' }
           format.json { render json: @user, status: :created, location: @user }
         else

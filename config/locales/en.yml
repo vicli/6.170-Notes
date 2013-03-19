@@ -2,4 +2,43 @@
 # See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 en:
-  hello: "Hello world"
+  layouts: 
+    application:
+      home: "Home"
+      orders: "Orders"
+      products: "Products"
+      users: "Users"
+      signup: "Sign Up"
+      login: "Login"
+      logout: "Logout"
+  line_items:
+    line_item:
+      remove: "Remove"
+  store:
+    index:
+      title: "Your Shopping Catalog"
+      add: "Add to Cart"
+  carts:
+    cart:
+      title: "Your Shopping Cart"
+      empty: "Empty Cart"
+      checkout: "Checkout"
+      message: "Please log in before checking out!"
+  number:
+    currency:
+      format:
+        unit: "$"
+        precision: 2
+        separator: "."
+        delimiter: ","
+        format: "%u%n"
+  orders:
+    new:
+      legend: "Please Enter Order Details"
+    form:
+      name: "Name"
+      address: "Address"
+      email: "Email"
+      submit: "Submit Order"
+  thanks: "Thanks for the order!"
+  emptyorder: "Your cart is empty!"

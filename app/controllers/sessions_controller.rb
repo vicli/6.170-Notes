@@ -1,6 +1,7 @@
 class SessionsController < ApplicationController
   skip_before_filter :authorize
   skip_before_filter :authorize_admin
+  
   def new
   end
 
@@ -10,7 +11,7 @@ class SessionsController < ApplicationController
       if user.role == "admin"
   		  redirect_to admin_url 
       else
-        redirect_to store_index_path, :notice => "Thanks for yor"
+        redirect_to store_index_path
       end 
   	else
   		redirect_to login_url, :alert => "Invalid user/password"

@@ -5,13 +5,6 @@ class OrdersController < ApplicationController
   # GET /orders
   # GET /orders.json
 
-  def cust_authorize
-    p "in orders controller"
-      unless Customer.find_by_id(session[:user_id])
-        redirect_to login_url, :notice => "Please log in before placing order"
-      end
-  end
-
   def index
     @orders = Order.all
 
@@ -37,7 +30,7 @@ class OrdersController < ApplicationController
   def new
     @cart = current_cart
     if @cart.line_items.empty?
-      redirect_to store_url, :notice => 'Your cart is empty!'
+      redirect_to store_url, :notice => I18n.t('.emptyorder')
       return
     end
     
@@ -65,7 +58,7 @@ class OrdersController < ApplicationController
       if @order.save
         Cart.destroy(session[:cart_id])
         session[:cart_id] = nil
-        format.html { redirect_to store_url, notice: 'Thanks for the order!' }
+        format.html { redirect_to store_url, notice: I18n.t('.thanks') }
         format.json { render json: @order, status: :created, location: @order }
       else
         format.html { render action: "new" }
