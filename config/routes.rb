@@ -16,7 +16,7 @@ Proj2::Application.routes.draw do
 
   get "sessions/destroy"
 
-  
+
 
   get "store/index"
 
@@ -41,12 +41,6 @@ Proj2::Application.routes.draw do
      root :to => 'store#index', :as => 'store'
 
   end
- 
-
-
-  
-  
-
   
 
   # The priority is based upon order of creation:

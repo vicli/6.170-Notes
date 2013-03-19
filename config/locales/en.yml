@@ -40,5 +40,6 @@ en:
       address: "Address"
       email: "Email"
       submit: "Submit Order"
+
   thanks: "Thanks for the order!"
   emptyorder: "Your cart is empty!"
