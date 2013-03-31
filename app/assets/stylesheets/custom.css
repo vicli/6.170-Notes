@@ -1,0 +1,68 @@
+body{
+	margin: 30px;
+}
+.cart_title {
+	font: 120% bold;
+}
+.itemprice, .totalline {
+	text-align: right;
+	padding: 10px;
+}
+.totalline .totalcell {
+	font-weight: bold;
+	padding: 10px;
+	border-top: 1px solid #595;
+}
+
+#catalog{
+	text-align: center;
+	margin-top: 50px;
+}
+#columns{
+
+	float: right;
+	
+	height: 100%;
+	font-family: Helvetica;
+	text-align: right;
+	line-height: 16px;
+	padding: 20px;
+}
+
+#product_list table {
+        border-collapse: collapse;
+}
+
+#product_list table tr td {
+        padding: 5px;
+        vertical-align: top;
+}
+
+#listing{
+	padding: 10px;
+	margin-left: 100px;
+}
+.entry{
+	font-size: 14px;
+	width: 600px;
+
+}
+#buttons{
+	float: center;
+}
+.entry .priceline{
+	margin-top: 10px;
+}
+.entry .but{
+	float: right;
+}
+
+.orders{
+	margin-left: 50px;
+	width: 600px;
+}
+#links{
+	font-size: 16px;
+	line-height: 26px;
+	font-weight: b
+}

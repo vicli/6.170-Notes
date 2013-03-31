@@ -1,0 +1,9 @@
+
+<tr>
+	<td><%= line_item.quantity %> &times;</td>
+	<td><%= line_item.product.title %> </td>
+	<td class = "itemprice"> <%= number_to_currency(line_item.total_price) %></td>
+	
+	<td><%= button_to t('.remove'), {:controller => :line_items,
+      :action => 'decrease', :product_id => line_item.product_id }, {:method => :delete}%></td>
+</tr>

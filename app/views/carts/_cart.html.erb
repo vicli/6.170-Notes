@@ -1,0 +1,25 @@
+
+<div class="cart_title" style = "font-weight:bold; font-size: 22px"><%= t('.title')%></div>
+
+<table>
+	<%= render(cart.line_items) %>
+
+	<tr class="totalline">
+		<td colspan="2">Total</td>
+		<td class="totalcell"><%= number_to_currency(cart.total_price) %></td>
+	</tr>
+</table>
+
+<div id = "buttons">
+
+<% if !!session[:user_id] %>
+	<%= button_to t('.checkout'), new_order_path %>
+<% else %>
+	<p><%= t('.message') %></p>
+	
+<% end %>
+
+
+
+<%= button_to t('.empty'), cart, :method => :delete, :confirm => 'Are you sure?' %>
+</div>
