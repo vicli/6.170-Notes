@@ -1,0 +1,40 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @note.name %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @note.description %>
+</p>
+
+<p>
+  <b>Date created:</b>
+  <%= @note.created_at %>
+</p>
+
+<p>
+  <b>Starred:</b>
+  <%= @note.starred %>
+</p>
+
+<p>
+  <b>Owner:</b>
+  <%= @note.owner %>
+</p>
+
+<p>
+  <b>Due date:</b>
+  <%= @note.due_date %>
+</p>
+
+<p>
+  <b>Tag:</b>
+  <%= @note.tag %>
+</p>
+
+
+<%= link_to 'Edit', edit_note_path(@note) %> |
+<%= link_to 'Back', notes_path %>

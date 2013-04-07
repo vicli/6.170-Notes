@@ -1,0 +1,67 @@
+body{
+	margin-right: 80px;
+	background-color: #ECF0F1;
+}
+
+#taskhome{
+	margin-left: 100px;
+	background-image: url('../assets/images/home.jpeg');
+}
+
+#head{
+	padding-top: 20px;
+	margin-left: 220px;
+	font-size: 60px;
+
+}
+.trash{
+	text-align: right;
+	font-size: 10px;
+	padding: 5px;
+}
+.entry{
+	margin-left: 220px;
+	padding: 20px;
+	width: 400px;
+	height: 40px;
+	background-color: #2C3E50;
+	margin-bottom: 20px;
+	border-radius: 5px;
+	color: #ECF0F1;
+	font-size: 16px;
+	text-align: center;
+}
+.trash{
+	float:right;
+}
+.field{
+	width: 420px;
+	padding:20px;
+}
+.note{
+	margin-top: 20px;
+}
+.notebody{
+	margin-top: 50px;
+}
+.login{
+	padding-top: 20px;
+	margin-left:30%;
+}
+#navbar{
+	text-align: right;
+	padding: 0px;
+}
+
+.login{
+	background-color: #34495E;
+	border-radius: 5px;
+	height:10px;
+	width: 300px;
+}
+.login span{
+	margin-left: 22px;
+}
+.create{
+	margin-left: 200px;
+}

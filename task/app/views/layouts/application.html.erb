@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+  <script src="http://code.jquery.com/ui/1.10.2/jquery-ui.js"></script>
+
+  <title>Task</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= stylesheet_link_tag "custom" %>
+  <%= stylesheet_link_tag "jquery-ui-1.10.2.custom" %>
+  <%= javascript_include_tag "application" %>
+  <%= javascript_include_tag "jquery.raty" %>
+
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<ul>
+<%= render "shared/navigation" %>
+</ul>
+
+<%= yield %>
+
+</body>
+</html>

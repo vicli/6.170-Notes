@@ -1,0 +1,14 @@
+<div class = "notebody">
+	<% @notes.each do |note| %>
+		<div class = "entry" >
+			<%= note.name %>
+			<div class = "trash">
+			<%= link_to 'delete', note, method: :delete, data: { confirm: 'Are you sure?' }, :remote => true %>
+			</div>
+			<!-- <button type = "submit" onclick = "delete(<%= note.id%>)"style = "background:transparent; border:0; float:right">
+			<img src = "trash.png" width = "20" height = "20" class = "trash"/>
+			</button> -->
+		</div>
+	<% end %>
+	<div id = "notes"></div>
+	</div>

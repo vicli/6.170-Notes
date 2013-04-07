@@ -1,0 +1,28 @@
+<div class="create">
+<%= form_for("note", :url => notes_path, :remote => true, :html => {:id => 'new_note_form'}) do |f| %>
+
+  <div class="field" >
+    <%= f.text_field :name, :class=>'field', :id => 'namefield' %>
+  </div>
+<!--   <div class="field">
+    <h4><%= f.label :description %></h4>
+    <%= f.text_area :description, :rows => "5" %>
+  </div> -->
+<!--   <div class="field">
+    <h4><%= f.label :starred %></h4>
+    <%= f.check_box :starred %>
+  </div>
+  <div class="field">
+    <h4><%= f.label :due_date %></h4>
+    <%= f.text_field :due_date %>
+  </div>
+  <div class="field">
+    <h4><%= f.label :tag %></h4>
+    <%= f.text_field :tag %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+  <button></button> -->
+<% end %>
+</div>

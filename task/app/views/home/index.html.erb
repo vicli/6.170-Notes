@@ -1,0 +1,15 @@
+
+
+<div id = "taskhome">
+
+<% if user_signed_in? %>
+    <div id="star"></div>
+	<%= render "new_note" %>
+	<div id = "notes">
+	<%= render "note_body" %>
+	</div>
+	</div>
+<% else %>
+	<%= render "loggedin" %>
+<% end %>
+</div>
