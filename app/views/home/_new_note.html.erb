@@ -1,8 +1,8 @@
 <div class="create">
-<%= form_for("note", :url => notes_path, :remote => true, :html => {:id => 'new_note_form'}) do |f| %>
+<%= form_for("note", :url => notes_path, :remote => true, :autofocus => true, :html => {:id => 'new_note_form'}) do |f| %>
 
   <div class="field" >
-    <%= f.text_field :name, :class=>'field', :id => 'namefield' %>
+    <%= f.text_field :name, :class=>'field', :id => 'namefield', :value => 'Enter Task', :onfocus =>"if (this.value=='Enter Task') this.value='';", :onblur => "if (this.value=='') this.value='Enter Task';", :style => 'color:#848484;' %>
   </div>
 <!--   <div class="field">
     <h4><%= f.label :description %></h4>

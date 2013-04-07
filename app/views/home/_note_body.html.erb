@@ -1,14 +1,29 @@
+
 <div class = "notebody">
+
 	<% @notes.each do |note| %>
+	
 		<div class = "entry" >
-			<%= note.name %>
+				<div class = "entry_name" onclick = "edit()"><%= note.name %></div>
 			<div class = "trash">
 			<%= link_to 'delete', note, method: :delete, data: { confirm: 'Are you sure?' }, :remote => true %>
+
+			<div id="dialog-form" title="Edit">
+			  <form>
+			  <fieldset>
+			    <label for="name">Name</label>
+			    <input type="text" name="name" id="name" class="text ui-widget-content ui-corner-all" value = "<%= note.name%>" />
+			  </fieldset>
+			  </form>
+			</div>
+			<button id="edit_name">edit</button>
 			</div>
 			<!-- <button type = "submit" onclick = "delete(<%= note.id%>)"style = "background:transparent; border:0; float:right">
 			<img src = "trash.png" width = "20" height = "20" class = "trash"/>
 			</button> -->
 		</div>
+
+	
 	<% end %>
 	<div id = "notes"></div>
 	</div>

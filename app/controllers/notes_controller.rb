@@ -1,12 +1,16 @@
 class NotesController < ApplicationController
   before_filter :load
-  # GET /notes
-  # GET /notes.json
-
+ 
+  #Pre loads notes/user data for easy access. 
   def load
     @user = current_user
-    @notes = Note.where(:owner => @user.id)
+    if @user != nil
+      @notes = Note.where(:owner => @user.id)
+    end
   end
+
+  # GET /notes
+  # GET /notes.json
   def index
     @notes = Note.all
 
@@ -47,13 +51,16 @@ class NotesController < ApplicationController
   # POST /notes.json
   def create
     @note = Note.new(params[:note])
+
+    #Finds the id of current user and uses this to identify owner of note. 
     @user = current_user.id
     @note.owner = @user
 
     respond_to do |format|
       if @note.save
-        format.html { redirect_to @note, notice: 'Note was successfully created.' }
+        format.html { redirect_to root_url, notice: 'Note was successfully created.' }
         format.json { render json: @note, status: :created, location: @note }
+        # Formats create.js.erb
         format.js
       else
         format.html { render action: "new" }
@@ -88,6 +95,7 @@ class NotesController < ApplicationController
     respond_to do |format|
       format.html { redirect_to root_url }
       format.json { head :no_content }
+      # Formates destroy.js.erb
       format.js 
     end
   end

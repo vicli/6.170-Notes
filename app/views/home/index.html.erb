@@ -1,15 +1,71 @@
 
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.2/themes/smoothness/jquery-ui.css" />
+  <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+  <script src="http://code.jquery.com/ui/1.10.2/jquery-ui.js"></script>
+  <link rel="stylesheet" href="/resources/demos/style.css" />
+  <script>
+  function edit()
+  {
+  
+  };
+  $('.entry_name').editable();
+
+  $(function() {
+    var name = $( "#name" ),
+      allFields = $( [] ).add( name );
+ 
+    function checkLength( o, n, min, max ) {
+      if ( o.val().length > max || o.val().length < min ) {
+        o.addClass( "ui-state-error" );
+        updateTips( "Length of " + n + " must be between " +
+          min + " and " + max + "." );
+        return false;
+      } else {
+        return true;
+      }
+    }
+ 
+    $( "#dialog-form" ).dialog({
+      autoOpen: false,
+      height: 300,
+      width: 350,
+      modal: true,
+      buttons: {
+        "Create an account": function() {
+          var bValid = true;
+        Cancel: function() {
+          $( this ).dialog( "close" );
+        }
+      },
+      close: function() {
+        allFields.val( "" ).removeClass( "ui-state-error" );
+      }
+    });
+ 
+    $( "#edit-name" )
+      .button()
+      .click(function() {
+        $( "#dialog-form" ).dialog( "open" );
+      });
+  });
+  </script>
+ 
 
 <div id = "taskhome">
 
+<!-- Displays notes only if user is signed in -->
 <% if user_signed_in? %>
     <div id="star"></div>
+    <!-- Rendering partial for new note creation -->
 	<%= render "new_note" %>
 	<div id = "notes">
+	<!-- Rendering partial for note display -->
+	
 	<%= render "note_body" %>
 	</div>
 	</div>
 <% else %>
+<!-- Otherwise, user must register or sign in. -->
 	<%= render "loggedin" %>
 <% end %>
 </div>

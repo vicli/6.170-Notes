@@ -1,7 +1,5 @@
 require 'test_helper'
 
 class NoteTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+  # No methods in Note Model to test out.
 end

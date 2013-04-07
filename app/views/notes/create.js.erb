@@ -1,4 +1,6 @@
+// Re-renders the note_body partial after database is updated, allowing new database entry to 
+// be displayed without refreshing page.
 $('#notes').html("<%= escape_javascript(render 'home/note_body') %>");
-
- $('#namefield').val('');
+// Clear the form for next use.
+$('#namefield').val('');
 
