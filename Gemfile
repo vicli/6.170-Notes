@@ -6,7 +6,12 @@ gem 'devise'
 gem "flat-ui-rails"
 
 
-gem 'pg'
+group :development, :test do
+  gem 'sqlite3'
+end
+group :production do
+  gem 'pg'
+end
 gem 'best_in_place'
 
 # Gems used only for assets and not required
