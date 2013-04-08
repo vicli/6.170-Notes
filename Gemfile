@@ -7,6 +7,7 @@ gem "flat-ui-rails"
 
 
 gem 'sqlite3'
+gem 'best_in_place'
 
 # Gems used only for assets and not required
 # in production environments by default.

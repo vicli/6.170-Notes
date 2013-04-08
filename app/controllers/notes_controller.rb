@@ -1,12 +1,23 @@
 class NotesController < ApplicationController
   before_filter :load
+  respond_to :json
  
   #Pre loads notes/user data for easy access. 
   def load
     @user = current_user
     if @user != nil
       @notes = Note.where(:owner => @user.id)
+
     end
+  end
+
+  def in_place_update
+     @note = Note.find(params[:id])
+     @note.update_attributes(:name, params[:text])
+
+     respond_to do |format|
+      format.js
+     end
   end
 
   # GET /notes
@@ -78,10 +89,10 @@ class NotesController < ApplicationController
     respond_to do |format|
       if @note.update_attributes(params[:note])
         format.html { redirect_to @note, notice: 'Note was successfully updated.' }
-        format.json { head :no_content }
+        format.json { respond_with_bip(@note) }
       else
         format.html { render action: "edit" }
-        format.json { render json: @note.errors, status: :unprocessable_entity }
+        format.json { respond_with_bip(@note) }
       end
     end
   end
