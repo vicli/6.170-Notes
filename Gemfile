@@ -4,9 +4,14 @@ source 'https://rubygems.org'
 gem 'rails', '3.2.11'
 gem 'devise'
 gem "flat-ui-rails"
+gem "heroku"
 
-
-gem 'pg'
+group :development, :test do
+  gem 'sqlite3'
+end
+group :production do
+  gem 'pg'
+end
 gem 'best_in_place'
 
 # Gems used only for assets and not required
