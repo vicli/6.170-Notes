@@ -4,6 +4,11 @@ body{
 	margin-top: 20px;
 }
 
+#message{
+	text-align: center;
+	padding-bottom: 20px;
+	font-size: 26px;
+}
 #taskhome{
 	margin-left: 100px;
 }
@@ -15,15 +20,21 @@ body{
 
 }
 .trash{
-	text-align: right;
+	float: right;
 	font-size: 10px;
 	padding: 5px;
+	height: auto;
+	display: inline;
+}
+.star{
+	float: left;
 }
 .entry{
 	margin-left: 220px;
-	padding: 20px;
+	padding: 30px;
+
 	width: 400px;
-	height: 40px;
+	height: auto;
 	background-color: #2C3E50;
 	margin-bottom: 20px;
 	border-radius: 5px;
@@ -31,9 +42,7 @@ body{
 	font-size: 16px;
 	text-align: center;
 }
-.trash{
-	float:right;
-}
+
 .field{
 	width: 420px;
 	padding:20px;
@@ -43,10 +52,7 @@ body{
 }
 .notebody{
 	margin-top: 50px;
-}
-.login{
-	padding-top: 20px;
-	margin-left:30%;
+
 }
 #navbar{
 	text-align: right;
@@ -56,6 +62,8 @@ body{
 	margin-left: 100px;
 }
 .login{
+	padding-top: 20px;
+	margin-left:30%;
 	background-color: #34495E;
 	border-radius: 5px;
 	height:10px;
@@ -65,5 +73,7 @@ body{
 	margin-left: 22px;
 }
 .create{
+	margin-top: 20px;
 	margin-left: 200px;
+	margin-bottom: -50px;
 }

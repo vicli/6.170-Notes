@@ -4,4 +4,8 @@ class Note < ActiveRecord::Base
 
   validates :name, :presence => true
 
+  acts_as_rateable
+
+
+
 end

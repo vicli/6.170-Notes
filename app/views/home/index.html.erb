@@ -1,7 +1,11 @@
 <script type="text/javascript">
   $('.entry').live("click", function(){
     
-  })
+  });
+
+  $('#rating').raty();
+
+
 </script>
  <div id = "taskhome">
 
@@ -11,8 +15,7 @@
 	<%= render "new_note" %>
 	<div id = "notes">
 	<!-- Rendering partial for note display -->
-	
-<%= render "note_body" %>
+		<%= render "note_body" %>
 	</div>
 	</div>
 <% else %>

@@ -15,3 +15,4 @@
 //= require_tree .
 //= require jquery.raty
 //= require best_in_place
+

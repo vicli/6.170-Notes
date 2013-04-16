@@ -1,18 +1,58 @@
 
-<div class = "notebody">
+<script type="text/javascript">
 
+	// The following function allows the switching of the image (starred and unstarred) and 
+	// performs an ajax call, depending on if the note is being starred or unstarred.
+	// The note id is passed into the call as a parameter, which is then retrieved in the 
+	// corresponding method in notes_controller. Nothing needs to be defined when AJAX call is successful
+	// as the methods in the controller already elicits an asynchronous update for the note_body.
+	// An alert is shown when there is an error in the ajax call.
+	var starred = 0;
+    function change(objc){
+    if(objc.src.split("/").pop() === "star-off.png"){
+        objc.src = "star-on.png";
+        starred = $(objc).attr('dataid');
+        $.ajax({
+        	url: '/star',
+         	data: {dataid: starred},
+        	type:'POST'
+        }).error(function(data){
+        	alert("Something has gone wrong!");
+        });
+    }	
+    else {
+        objc.src = "star-off.png";
+        starred = $(objc).attr('dataid');
+        $.ajax({
+        	url: '/staroff',
+         	data: {dataid: starred},
+        	type:'POST'
+        }).error(function(data){
+        	alert("Something has gone wrong!");
+        });
+    };
+	};
+	
+</script>
+
+<div class = "notebody">
+	<div id = "message">You have <span style="color:#840000"><%= total %> tasks </span>remaining!</div>
 	<% @notes.each do |note| %>
 	
 		<div class = "entry" id = "<%= note.id %>">
 			<% @note = note %>
+
+			<% if @note.starred == true %>
+				<img src="star-on.png" class = "star" dataid = "<%= @note.id %>" onClick = "change(this);"/>
+			<%else %>
+				<img src="star-off.png" class = "star" dataid = "<%= @note.id %>" onClick = "change(this);"/>
+			<% end %>
 			<%= best_in_place @note, :name %>
-				
+			<% id = @note.id %>
+
 			<div class = "trash">
-			<%= link_to 'delete', note, method: :delete, data: { confirm: 'Are you sure?' }, :remote => true %>
-		</div>
-			<!-- <button type = "submit" onclick = "delete(<%= note.id%>)"style = "background:transparent; border:0; float:right">
-			<img src = "trash.png" width = "20" height = "20" class = "trash"/>
-			</button> -->
+				<%= link_to 'delete', note, method: :delete, data: { confirm: 'Are you sure?' }, :remote => true %>
+			</div>
 		</div>
 
 	
