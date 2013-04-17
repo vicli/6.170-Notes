@@ -3,7 +3,7 @@ Project 3: Web Stickies
 
 ###Heroku URL
 
-Please put it here: http://sheltered-retreat-3635.herokuapp.com/
+Please put it here: http://polar-fjord-7765.herokuapp.com/
 
 ###Notes
 
