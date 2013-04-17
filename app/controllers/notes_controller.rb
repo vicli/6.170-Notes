@@ -25,7 +25,7 @@ class NotesController < ApplicationController
   # GET /notes
   # GET /notes.json
   def index
-    @notes = Note.where(:owner => @user.id).order("starred DESC").order("created_at")
+    @notes = Note.where(:owner => @user.id).order("starred ASC").order("created_at")
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @notes }
@@ -35,7 +35,7 @@ class NotesController < ApplicationController
   # This method updates the "starred" attribute in the database to be true, 
   # and is invoked when the note is starred. It is called from a function within _note_body
   def star
-    @notes = Note.where(:owner => @user.id).order("starred DESC").order("created_at")
+    @notes = Note.where(:owner => @user.id).order("starred ASC").order("created_at")
     @note = Note.find(params[:dataid])
 
     @note.update_attributes(:starred => true)
@@ -48,7 +48,7 @@ class NotesController < ApplicationController
   # This method updates the "starred" attribute in the database to be false, 
   # and is invoked when the note is unstarred. It is called from a function within _note_body
   def staroff
-    @notes = Note.where(:owner => @user.id).order("starred DESC").order("created_at")
+    @notes = Note.where(:owner => @user.id).order("starred ASC").order("created_at")
     @note = Note.find(params[:dataid])
     @note.update_attributes(:starred => false)
 
@@ -90,7 +90,7 @@ class NotesController < ApplicationController
   # POST /notes
   # POST /notes.json
   def create
-    @notes = Note.where(:owner => @user.id).order("starred DESC").order("created_at")
+    @notes = Note.where(:owner => @user.id).order("starred ASC").order("created_at")
     @note = Note.new(params[:note])
 
     #Finds the id of current user and sets the owner of the note as this user's id. 
@@ -133,7 +133,7 @@ class NotesController < ApplicationController
     @note = Note.find(params[:id])
     @note.destroy
 
-    @notes = Note.where(:owner => @user.id).order("starred DESC").order("created_at")
+    @notes = Note.where(:owner => @user.id).order("starred ASC").order("created_at")
     respond_to do |format|
       format.html { redirect_to root_url }
       format.json { head :no_content }

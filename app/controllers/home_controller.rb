@@ -8,7 +8,7 @@ class HomeController < ApplicationController
 	  	@user = current_user
 	  	# Find notes that belongs to user. Notes are then reordered so that that starred notes are
 	  	# displayed first, followed by unstarred notes, which are then ordered by time creatd.
-	  	@notes = Note.where(:owner => @user.id).order("starred DESC").order("created_at")
+	  	@notes = Note.where(:owner => @user.id).order("starred ASC").order("created_at")
 	end
   end
 
