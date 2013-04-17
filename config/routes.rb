@@ -1,6 +1,5 @@
 Task::Application.routes.draw do
 
-  match '/rate' => 'rater#create', :as => 'rate'
   match '/star' => 'notes#star'
   match '/staroff' => 'notes#staroff'
   resources :notes
